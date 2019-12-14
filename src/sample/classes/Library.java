@@ -1,33 +1,37 @@
 package sample.classes;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.util.ArrayList;
 
 public class Library {
-    private String statue;
+    private String status;
     private String copyright;
-    private int num_results;
-    private ArrayList<Book> books;
+    private ArrayList <Book> books;
 
     public Library() {
-        this.statue = null;
+        this.status = null;
         this.copyright = null;
-        this.num_results = 0;
         this.books = new ArrayList<>();
     }
 
-    public Library(String statue, String copyright, int num_results, ArrayList<Book> books) {
-        this.statue = statue;
+    public Library(String status, String copyright, JSONArray jsonArray) {
+        this.status = status;
         this.copyright = copyright;
-        this.num_results = num_results;
-        this.books = books;
+        this.books = new ArrayList<>();
+        for (Object o1 : jsonArray) {
+            JSONObject object = (JSONObject) o1;
+            books.add(new Book((String) object.get("url"), (String) object.get("book_title"), (String) object.get("book_author"), (String) object.get("summary"), (ArrayList<String>)object.get("isbn13")));
+        }
     }
 
-    public String getStatue() {
-        return statue;
+    public String getStatus() {
+        return status;
     }
 
-    public void setStatue(String statue) {
-        this.statue = statue;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCopyright() {
@@ -38,14 +42,6 @@ public class Library {
         this.copyright = copyright;
     }
 
-    public int getNum_results() {
-        return num_results;
-    }
-
-    public void setNum_results(int num_results) {
-        this.num_results = num_results;
-    }
-
     public ArrayList<Book> getBooks() {
         return books;
     }
@@ -53,16 +49,12 @@ public class Library {
     public void setBooks(ArrayList<Book> books) {
         this.books = books;
     }
-    public void addBook(Book book){
-        books.add(book);
-    }
 
     @Override
     public String toString() {
         return "Library{" +
-                "statue='" + statue + '\'' +
+                "statue='" + status + '\'' +
                 ", copyright='" + copyright + '\'' +
-                ", num_results=" + num_results +
                 ", books=" + books +
                 '}';
     }

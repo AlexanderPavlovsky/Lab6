@@ -7,10 +7,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import sample.classes.Book;
 import sample.classes.JsonGet;
 import sample.classes.Library;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -37,11 +42,10 @@ public class Main extends Application {
             e.printStackTrace();
         }
         JSONObject jsonObject = (JSONObject) o;
-        Library library = new Library();
-        String status = (String) jsonObject.get("status");
-        System.out.println(status);
-   Object obj  = jsonObject.get("results");
-   obj.
+        JSONArray jsonArray = (JSONArray) jsonObject.get("results");
+        Library library = new Library((String) jsonObject.get("status"), (String) jsonObject.get("copyright"), jsonArray);
+        System.out.println(library);
         launch(args);
+
     }
 }

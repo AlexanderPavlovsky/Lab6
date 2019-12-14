@@ -1,28 +1,20 @@
 package sample.classes;
 
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Book {
     private String url;
-    private String publicationDate;
-    private String byLine;
     private String bookTitle;
     private String bookAuthor;
     private String summary;
-    private String uuid;
-    private String uri;
-    private List<String> isbn;
+    private ArrayList<String> isbn;
 
-    public Book(String url, String publicationDate, String byLine, String bookTitle, String bookAuthor, String summary, String uuid, String uri, List<String> isbn) {
+    public Book(String url, String bookTitle, String bookAuthor, String summary, ArrayList<String> isbn) {
         this.url = url;
-        this.publicationDate = publicationDate;
-        this.byLine = byLine;
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;
         this.summary = summary;
-        this.uuid = uuid;
-        this.uri = uri;
         this.isbn = isbn;
     }
 
@@ -34,21 +26,6 @@ public class Book {
         this.url = url;
     }
 
-    public String getPublicationDate() {
-        return publicationDate;
-    }
-
-    public void setPublicationDate(String publicationDate) {
-        this.publicationDate = publicationDate;
-    }
-
-    public String getByLine() {
-        return byLine;
-    }
-
-    public void setByLine(String byLine) {
-        this.byLine = byLine;
-    }
 
     public String getBookTitle() {
         return bookTitle;
@@ -74,27 +51,11 @@ public class Book {
         this.summary = summary;
     }
 
-    public String getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getUri() {
-        return uri;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-    public List<String> getIsbn() {
+    public ArrayList<String> getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(List<String> isbn) {
+    public void setIsbn(ArrayList<String> isbn) {
         this.isbn = isbn;
     }
 
@@ -102,13 +63,9 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "url='" + url + '\'' +
-                ", publicationDate='" + publicationDate + '\'' +
-                ", byLine='" + byLine + '\'' +
                 ", bookTitle='" + bookTitle + '\'' +
                 ", bookAuthor='" + bookAuthor + '\'' +
                 ", summary='" + summary + '\'' +
-                ", uuid='" + uuid + '\'' +
-                ", uri='" + uri + '\'' +
                 ", isbn=" + isbn +
                 '}';
     }
