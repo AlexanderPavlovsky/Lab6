@@ -4,11 +4,26 @@ import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Class JsonGet
+ */
 public class JsonGet  extends  Thread{
+    /**
+     * Data from json
+     */
     public String jsonIn;
+    /**
+     * URL of json
+     */
     public static String url;
 
-    private String readAll(Reader rd) throws IOException {
+    /**
+     * Read info form json
+     * @param rd object Reader
+     * @return data from json
+     * @throws IOException
+     */
+    private String readAll(final Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
         while ((cp = rd.read()) != -1) {
